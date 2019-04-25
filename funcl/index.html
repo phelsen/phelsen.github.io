@@ -1,5 +1,94 @@
-<html>
-<body>
-   <h1>Funcl</h1>
-  </body> 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+	<div id="container">
+	    <div id="left">
+		<h1>Fundamentals</h1>
+		<ul>
+		<li id="ref_eq">eq</li>
+		<li id="ref_clone">clone</li>
+		</ul>
+	    </div>
+	    
+	    <div id="right">
+		<h1>Funcl</h1>
+
+		<!-- eq -->
+		<div id="eq" class="keyword-container">
+		    <div class="keyword">f.eq(value1,value2)</div>
+		    <div>
+			<div class="info">
+			    Testing on equality.
+			    Does a deep comparisation on both type and content.
+			    Also compares empty collections
+			</div>
+
+			<div class="code">
+			    <pre>
+f.eq(1,1)  <span class="jscomm"> // => true </span>
+f.eq(1,"1")  <span class="jscomm"> // => false </span>
+f.eq([1,2,3],[1,2,3]) // <span class="jscomm"> // => true </span>
+f.eq ([],[]) <span class="jscomm"> // => true </span>
+f.eq({},[])  <span class="jscomm"> // => false </span>
+f.eq({a : [1, 2,3], b : [1, 2, [3, 4, { c : 42}]]},
+     {a : [1, 2,3], b : [1, 2, [3, 4, { c : 43}]]}) <span class="jscomm"> // => false </span></pre>
+			</div>
+		    </div>
+
+		    <div class="info">
+			Since keys in maps/js objects don't garantee order,
+			equality does not take key order into account. 
+		    </div>
+		    
+		    <div class="code">
+			<pre>
+f.eq( { a : [1,2], b : 99}, { b: 99, a: [1,2]})   <span class="jscomm"> // => true </span>
+			</pre>
+		    </div>
+		    
+		</div>
+		
+
+		<!-- clone -->
+		<div id="clone" class="keyword-container">
+		    <div class="keyword" id="eq">f.clone(value)</div>
+		    <div>
+			<div class="info">
+			    Returns a deep clone. 
+			</div>
+
+			<div class="code">
+			    <pre>
+const a = [1,2, { x : 42, y: 43}]
+const b = clone(a)
+a[2].y = 99
+a <span class="jscomm">// =>  [ 1, 2, { a: 42, b: 99 } ]</span>
+b <span class="jscomm">// => [ 1, 2, { a: 42, b: 43 } ]]</span></pre>
+
+			</div>
+		    </div>
+		    
+		    
+		</div>
+
+		<div id="page-spacer"></div>
+	    </div>
+
+	    
+	</div>
+	<script>
+	 document.querySelector("#left").addEventListener("click",handleClick);
+	 function handleClick(e) {
+	     e.stopPropagation();
+	     const target = e.target;
+	     if (!(target.tagName.toLowerCase()=="li"))  { return; }
+	     const goal = target.id.split("ref_")[1];
+	     document.querySelector("#" + goal).scrollIntoView(true);
+	 }
+	</script>
+    </body>
 </html>
