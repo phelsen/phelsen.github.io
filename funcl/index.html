@@ -12,7 +12,15 @@
 		<li id="ref_eq">eq</li>
 		<li id="ref_clone">clone</li>
 		</ul>
+		
+		<h1>Collection Operations</h1>
+		<ul>
+		    <li id="ref_first">first</li>
+		    <li id="ref_second">second</li>
+		    <li id="ref_last">last</li>
+		</ul>
 	    </div>
+
 	    
 	    <div id="right">
 		<h1>Funcl</h1>
@@ -40,7 +48,7 @@ f.eq({a : [1, 2,3], b : [1, 2, [3, 4, { c : 42}]]},
 		    </div>
 
 		    <div class="info">
-			Since keys in maps/js objects don't garantee order,
+			Since keys in maps/js objects don't guarantee order,
 			equality does not take key order into account. 
 		    </div>
 		    
@@ -64,17 +72,81 @@ f.eq( { a : [1,2], b : 99}, { b: 99, a: [1,2]})   <span class="jscomm"> // => tr
 			<div class="code">
 			    <pre>
 const a = [1,2, { x : 42, y: 43}]
-const b = clone(a)
+const b = f.clone(a)
 a[2].y = 99
 a <span class="jscomm">// =>  [ 1, 2, { a: 42, b: 99 } ]</span>
-b <span class="jscomm">// => [ 1, 2, { a: 42, b: 43 } ]]</span></pre>
-
-			</div>
+b <span class="jscomm">// => [ 1, 2, { a: 42, b: 43 } ]]</span></pre></div>
 		    </div>
-		    
-		    
 		</div>
 
+
+		
+		<!-- first -->
+		<div id="first" class="keyword-container">
+		    <div class="keyword" id="first">f.first(coll)</div>
+		    <div>
+			<div class="info">
+			    Returns the first element of a collection.
+			    This is the first element of the array, the first character of a string or the first key/value-pair of a map.
+			</div>
+
+			<div class="code">
+			    <pre>
+f.first([1,2,3,4])  <span class="jscomm">// =>  1 </span>
+f.first("BarFoo")  <span class="jscomm">// =>  "B" </span> 
+f.first ({ a : 12, b : 42, c : 99  })     <span class="jscomm">// =>  ["a",12] </span>
+			    </pre>
+			</div>
+
+		    </div>
+		</div>
+		<!-- /first -->
+
+
+
+		<!-- second -->
+		<div id="second" class="keyword-container">
+		    <div class="keyword" id="second">f.second(coll)</div>
+		    <div>
+			<div class="info">
+			    Returns the second  element of a collection.
+			    This is the second  element of the array, the second  character of a string or the second key/value-pair of a map.
+			</div>
+
+			<div class="code">
+			    <pre>
+f.second([1,2,3,4])  <span class="jscomm">// =>  2 </span>
+f.second("BarFoo")  <span class="jscomm">// =>  "a" </span> 
+f.second ({ a : 12, b : 42 , c : 99})     <span class="jscomm">// =>  ["b",42] </span> </pre>
+			</div>
+		    </div>
+		</div>
+		<!-- /second -->
+
+
+		<!-- last -->
+		<div id="last" class="keyword-container">
+		    <div class="keyword" id="last">f.last(coll)</div>
+		    <div>
+			<div class="info">
+			    Returns the last element of a collection.
+			    This is the last element of the array, the last character of a string or the last key/value-pair of a map.
+			</div>
+
+			<div class="code">
+			    <pre>
+f.last([1,2,3,4])  <span class="jscomm">// =>  4 </span>
+f.last("BarFoo")  <span class="jscomm">// =>  "o" </span> 
+f.last ({ a : 12, b : 42 , c : 99  })     <span class="jscomm">// =>  ["c",99] </span> 
+			    </pre>
+			</div>
+		    </div>
+		</div>
+
+
+		
+
+		
 		<div id="page-spacer"></div>
 	    </div>
 
