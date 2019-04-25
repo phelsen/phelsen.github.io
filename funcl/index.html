@@ -19,8 +19,14 @@
 		    <li id="ref_second">second</li>
 		    <li id="ref_last">last</li>
 		</ul>
-	    </div>
 
+		
+		<h1>Array Operations</h1>
+		<ul>
+		    <li id="ref_toggle">toggle</li>
+		</ul>
+	    </div>
+	    
 	    
 	    <div id="right">
 		<h1>Funcl</h1>
@@ -54,8 +60,7 @@ f.eq({a : [1, 2,3], b : [1, 2, [3, 4, { c : 42}]]},
 		    
 		    <div class="code">
 			<pre>
-f.eq( { a : [1,2], b : 99}, { b: 99, a: [1,2]})   <span class="jscomm"> // => true </span>
-			</pre>
+f.eq( { a : [1,2], b : 99}, { b: 99, a: [1,2]})   <span class="jscomm"> // => true </span></pre>
 		    </div>
 		    
 		</div>
@@ -83,7 +88,7 @@ b <span class="jscomm">// => [ 1, 2, { a: 42, b: 43 } ]]</span></pre></div>
 		
 		<!-- first -->
 		<div id="first" class="keyword-container">
-		    <div class="keyword" id="first">f.first(coll)</div>
+		    <div class="keyword">f.first(coll)</div>
 		    <div>
 			<div class="info">
 			    Returns the first element of a collection.
@@ -94,8 +99,7 @@ b <span class="jscomm">// => [ 1, 2, { a: 42, b: 43 } ]]</span></pre></div>
 			    <pre>
 f.first([1,2,3,4])  <span class="jscomm">// =>  1 </span>
 f.first("BarFoo")  <span class="jscomm">// =>  "B" </span> 
-f.first ({ a : 12, b : 42, c : 99  })     <span class="jscomm">// =>  ["a",12] </span>
-			    </pre>
+f.first ({ a : 12, b : 42, c : 99  })     <span class="jscomm">// =>  ["a",12] </span></pre>
 			</div>
 
 		    </div>
@@ -106,7 +110,7 @@ f.first ({ a : 12, b : 42, c : 99  })     <span class="jscomm">// =>  ["a",12] <
 
 		<!-- second -->
 		<div id="second" class="keyword-container">
-		    <div class="keyword" id="second">f.second(coll)</div>
+		    <div class="keyword">f.second(coll)</div>
 		    <div>
 			<div class="info">
 			    Returns the second  element of a collection.
@@ -126,7 +130,7 @@ f.second ({ a : 12, b : 42 , c : 99})     <span class="jscomm">// =>  ["b",42] <
 
 		<!-- last -->
 		<div id="last" class="keyword-container">
-		    <div class="keyword" id="last">f.last(coll)</div>
+		    <div class="keyword">f.last(coll)</div>
 		    <div>
 			<div class="info">
 			    Returns the last element of a collection.
@@ -137,8 +141,29 @@ f.second ({ a : 12, b : 42 , c : 99})     <span class="jscomm">// =>  ["b",42] <
 			    <pre>
 f.last([1,2,3,4])  <span class="jscomm">// =>  4 </span>
 f.last("BarFoo")  <span class="jscomm">// =>  "o" </span> 
-f.last ({ a : 12, b : 42 , c : 99  })     <span class="jscomm">// =>  ["c",99] </span> 
-			    </pre>
+f.last ({ a : 12, b : 42 , c : 99  })     <span class="jscomm">// =>  ["c",99] </span>  </pre>
+			</div>
+		    </div>
+		</div>
+		<!-- /last -->
+
+
+
+		
+		<!-- toggle -->
+		<div id="toggle" class="keyword-container">
+		    <div class="keyword">f.toggle(arr,el)</div>
+		    <div>
+			<div class="info">
+			    Removes the first appearance of el in arr if present.
+			    If not add the element at the end of the array.
+			    <br/>(non-clojure)
+			</div>
+
+			<div class="code">
+			    <pre>
+f.toggle([1,2,3,4],3)  <span class="jscomm">// =>  [1,2,4] </span>
+f.toggle([1,2,3,4],5)  <span class="jscomm">// =>  [1,2,3,4,5] </span> </pre>
 			</div>
 		    </div>
 		</div>
