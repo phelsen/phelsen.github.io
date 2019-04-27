@@ -13,11 +13,14 @@
 		<li id="ref_clone">clone</li>
 		</ul>
 		
-		<h1>Collection Operations</h1>
+		<h1>Sequence Operations</h1>
 		<ul>
 		    <li id="ref_first">first</li>
-		    <li id="ref_second">second</li>
+		    <li id="ref_interleave">interleave</li>
 		    <li id="ref_last">last</li>
+		    <li id="ref_nth">nth</li>
+		    <li id="ref_partition">partition</li>
+		    <li id="ref_second">second</li>
 		</ul>
 
 		
@@ -25,6 +28,17 @@
 		<ul>
 		    <li id="ref_toggle">toggle</li>
 		</ul>
+
+
+		<h1>Set Operations</h1>
+		<ul>
+		    <li id="ref_difference">difference</li>
+		    <li id="ref_intersection">intersection</li>
+		    <li id="ref_union">union</li>
+		</ul>
+
+		
+
 	    </div>
 	    
 	    
@@ -60,7 +74,7 @@ f.eq({a : [1, 2,3], b : [1, 2, [3, 4, { c : 42}]]},
 		    
 		    <div class="code">
 			<pre>
-f.eq( { a : [1,2], b : 99}, { b: 99, a: [1,2]})   <span class="jscomm"> // => true </span></pre>
+f.eq( { a : [1,2], b : 99}, { b: 99, a: [1,2]})   <span class="jscomm"> // => true </span><n/pre>
 		    </div>
 		    
 		</div>
@@ -88,10 +102,10 @@ b <span class="jscomm">// => [ 1, 2, { a: 42, b: 43 } ]]</span></pre></div>
 		
 		<!-- first -->
 		<div id="first" class="keyword-container">
-		    <div class="keyword">f.first(coll)</div>
+		    <div class="keyword">f.first(seq)</div>
 		    <div>
 			<div class="info">
-			    Returns the first element of a collection.
+			    Returns the first element of a sequence.
 			    This is the first element of the array, the first character of a string or the first key/value-pair of a map.
 			</div>
 
@@ -108,12 +122,39 @@ f.first ({ a : 12, b : 42, c : 99  })     <span class="jscomm">// =>  ["a",12] <
 
 
 
+		<!-- interleave -->
+		<div id="interleave" class="keyword-container">
+		    <div class="keyword">f.interleave(seq1,seq2)</div>
+		    <div class="info">
+			Interleaves two sequences.  If one of the sequences is longer than the other it will be truncated. 
+		    </div>
+		</div>
+
+		<div id="nth" class="keyword-container">
+		    <div class="keyword">f.nth(seq,n)</div>
+		    <div class="info">
+
+		    </div>
+		</div>
+
+		
+		<div id="partition" class="keyword-container">
+		    <div class="keyword">f.partition(n,seq)</div>
+		    <div class="info">
+			Makes non overlapping partitions of size 'n'  from sequence 'seq'.
+			If the number of groups don't fit precisely in the original sequence,
+			the last group is not returned.
+		    </div>
+		</div>
+
+		
+
 		<!-- second -->
 		<div id="second" class="keyword-container">
-		    <div class="keyword">f.second(coll)</div>
+		    <div class="keyword">f.second(seq)</div>
 		    <div>
 			<div class="info">
-			    Returns the second  element of a collection.
+			    Returns the second  element of a sequence.
 			    This is the second  element of the array, the second  character of a string or the second key/value-pair of a map.
 			</div>
 
@@ -130,10 +171,10 @@ f.second ({ a : 12, b : 42 , c : 99})     <span class="jscomm">// =>  ["b",42] <
 
 		<!-- last -->
 		<div id="last" class="keyword-container">
-		    <div class="keyword">f.last(coll)</div>
+		    <div class="keyword">f.last(seq)</div>
 		    <div>
 			<div class="info">
-			    Returns the last element of a collection.
+			    Returns the last element of a sequence.
 			    This is the last element of the array, the last character of a string or the last key/value-pair of a map.
 			</div>
 
@@ -169,7 +210,38 @@ f.toggle([1,2,3,4],5)  <span class="jscomm">// =>  [1,2,3,4,5] </span> </pre>
 		</div>
 
 
+		<!-- differecne -->
+		<div id="difference" class="keyword-container">
+		    <div class="keyword">f.difference(...sets)</div>
+		    <div class="info">
+			Returns the differences from all ...sets given, 
+			Reduces from left to right.
+		    </div>
+		</div>
+
+
 		
+		<!-- intersection -->
+		<div id="intersection" class="keyword-container">
+		    <div class="keyword">f.intersection(...sets)</div>
+		    <div class="info">
+			Returns intersection of all ...sets given. 
+		    </div>
+		</div>
+
+
+
+
+		<!-- union -->
+		<div id="union" class="keyword-container">
+		    <div class="keyword">f.union(...sets)</div>
+		    <div class="info">
+			Returns the union of all ...sets given.
+		    </div>
+		</div>
+
+
+
 
 		
 		<div id="page-spacer"></div>
