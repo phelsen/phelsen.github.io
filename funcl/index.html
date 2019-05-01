@@ -12,8 +12,16 @@
 		<li id="ref_eq">eq</li>
 		<li id="ref_clone">clone</li>
 		</ul>
+
+		<h1>Map Operations</h1>
+		
+		<ul>
+		  <li id="ref_merge">merge</li>
+		</ul>
+		
 		
 		<h1>Sequence Operations</h1>
+		
 		<ul>
 		    <li id="ref_first">first</li>
 		    <li id="ref_interleave">interleave</li>
@@ -99,6 +107,25 @@ b <span class="jscomm">// => [ 1, 2, { a: 42, b: 43 } ]]</span></pre></div>
 		</div>
 
 
+		<!-- merge -->
+		<div id="merge" class="keyword-container">
+		    <div class="keyword">f.merge(...m)</div>
+		    <div>
+			<div class="info">
+			  Merges maps.  Support for seqs wil follow later.
+			</div>
+
+			<div class="code">
+			    <pre>
+f.merge({ a : 12, b : 22, c : 99, d : 100} ,{a : 8, d : 12},{f : 9, g : 99}) <span class="jscomm">// =>  {a : 8 , b : 22, c : 99, d : 12, f: 9, g : 99})  </span>
+			      </pre>
+			</div>
+
+		    </div>
+		</div>
+		<!-- /merge -->
+		
+		
 		
 		<!-- first -->
 		<div id="first" class="keyword-container">
@@ -126,13 +153,31 @@ f.first ({ a : 12, b : 42, c : 99  })     <span class="jscomm">// =>  ["a",12] <
 		<div id="interleave" class="keyword-container">
 		    <div class="keyword">f.interleave(seq1,seq2)</div>
 		    <div class="info">
-			Interleaves two sequences.  If one of the sequences is longer than the other it will be truncated. 
+			Interleaves two sequences.  If one of the sequences is longer than the other it will be truncated.  Support for (...seq) will follow later. 
 		    </div>
-		</div>
 
+
+		    <div class="code">
+			<pre>
+f.interleave(f.range(1,5),f.map(f.sqr,f.range(1,5)))   <span class="jscomm">// => [1, 1, 2, 4, 3, 9, 4, 16] </span></pre>
+		    </div>
+		    
+		</div>
+		
 		<div id="nth" class="keyword-container">
 		    <div class="keyword">f.nth(seq,n)</div>
 		    <div class="info">
+			Takes the nth element of a sequence. Throws outOfIndex error if n is out of index.
+		    </div>
+
+
+		    <div class="code">
+			<pre>
+f.nth("barfoo",3) <span class="jscomm">// => "f" </span>
+f.nth(nth([1,23,9],2)) <span class="jscomm">// => 9 </span>
+f.nth({ a : 1, b : 2, c : 3, d : 4 },2)<span class="jscomm">// => ["c", 3] </span>
+f.nth(nth([1,2,3],4)) <span class="jscomm">// =>  Uncaught Error: Out of index </span></pre>
+			
 
 		    </div>
 		</div>
@@ -214,8 +259,7 @@ f.toggle([1,2,3,4],5)  <span class="jscomm">// =>  [1,2,3,4,5] </span> </pre>
 		<div id="difference" class="keyword-container">
 		    <div class="keyword">f.difference(...sets)</div>
 		    <div class="info">
-			Returns the differences from all ...sets given, 
-			Reduces from left to right.
+			Returns the differences from all ...sets given, reduces from left to right.
 		    </div>
 		</div>
 
